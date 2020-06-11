@@ -56,8 +56,8 @@ window.renderStatistics = function (ctx, players, score) {
 
   ctx.font = '16px PT Mono';
   ctx.textBaseline = 'hanging';
-  var titleX = CLOUD_X + GAP;
-  var titleY = CLOUD_Y + GAP;
+  var titleX = CLOUD_X + GAP * 2;
+  var titleY = CLOUD_Y + GAP * 2;
   ctx.fillText('Ура вы победили!', titleX, titleY);
   ctx.fillText('Список результатов:', titleX, titleY + FONT_GAP);
 };
