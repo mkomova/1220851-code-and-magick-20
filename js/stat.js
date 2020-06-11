@@ -4,12 +4,9 @@ var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
-var Y_RECT = 70;
-var Y_NAME = 250;
 var GAP = 10;
 var GAP_RECT = 50;
 var FONT_GAP = 15;
-var TEXT_WIDTH = 50;
 var BAR_WIDTH = 40;
 var BAR_HEIGHT = 150;
 
