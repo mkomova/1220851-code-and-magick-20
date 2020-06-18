@@ -1,9 +1,45 @@
 'use strict';
 
-var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var WIZARD_SURNAMES = [' да Марья', ' Верон', ' Мирабелла', ' Вальц', ' Онопко', ' Топольницкая', ' Нионго', ' Ирвинг'];
-var WIZARD_COAT = ['rgb(241, 43, 107)', 'rgb(215, 210, 55)', 'rgb(101, 137, 164)', 'rgb(127, 127, 127)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(0, 0, 0)'];
-var WIZARD_EYES = ['black', 'red', 'blue', 'yellow', 'green', 'black'];
+var WIZARD_NAMES = [
+  'Иван',
+  'Хуан Себастьян',
+  'Мария',
+  'Кристоф',
+  'Виктор',
+  'Юлия',
+  'Люпита',
+  'Вашингтон',
+];
+
+var WIZARD_SURNAMES = [
+  ' да Марья',
+  ' Верон',
+  ' Мирабелла',
+  ' Вальц',
+  ' Онопко',
+  ' Топольницкая',
+  ' Нионго',
+  ' Ирвинг',
+];
+
+var WIZARD_COAT = [
+  'rgb(241, 43, 107)',
+  'rgb(215, 210, 55)',
+  'rgb(101, 137, 164)',
+  'rgb(127, 127, 127)',
+  'rgb(146, 100, 161)',
+  'rgb(56, 159, 117)',
+  'rgb(0, 0, 0)',
+];
+
+var WIZARD_EYES = [
+  'black',
+  'red',
+  'blue',
+  'yellow',
+  'green',
+  'black',
+];
 
 var setup = document.querySelector('.setup');
 setup.classList.remove('hidden');
@@ -37,6 +73,20 @@ var wizards = [
     eyesColor: WIZARD_EYES[i],
   },
 ];
+
+var generateWizards = function (quantity) {
+  for (var i = 0; i < quantity; i++) {
+
+    wizards[i] = {
+      name: WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)] + WIZARD_SURNAMES[Math.floor(Math.random() * WIZARD_SURNAMES.length)],
+      coatColor: WIZARD_COAT[Math.floor(Math.random() * WIZARD_COAT.length)],
+      eyesColor: WIZARD_EYES[Math.floor(Math.random() * WIZARD_EYES.length)]
+    };
+  }
+  return wizards;
+};
+
+generateWizards(4);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
