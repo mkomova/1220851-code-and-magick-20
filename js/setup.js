@@ -1,5 +1,7 @@
 'use strict';
 
+var WIZARDS_QUANTITY = 4;
+
 var WIZARD_NAMES = [
   'Иван',
   'Хуан Себастьян',
@@ -12,14 +14,14 @@ var WIZARD_NAMES = [
 ];
 
 var WIZARD_SURNAMES = [
-  ' да Марья',
-  ' Верон',
-  ' Мирабелла',
-  ' Вальц',
-  ' Онопко',
-  ' Топольницкая',
-  ' Нионго',
-  ' Ирвинг',
+  'да Марья',
+  'Верон',
+  'Мирабелла',
+  'Вальц',
+  'Онопко',
+  'Топольницкая',
+  'Нионго',
+  'Ирвинг',
 ];
 
 var WIZARD_COAT = [
@@ -51,42 +53,27 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
 
-var wizards = [
-  {
-    name: WIZARD_NAMES[i] + WIZARD_SURNAMES[i],
-    coatColor: WIZARD_COAT[i],
-    eyesColor: WIZARD_EYES[i],
-  },
-  {
-    name: WIZARD_NAMES[i] + WIZARD_SURNAMES[i],
-    coatColor: WIZARD_COAT[i],
-    eyesColor: WIZARD_EYES[i],
-  },
-  {
-    name: WIZARD_NAMES[i] + WIZARD_SURNAMES[i],
-    coatColor: WIZARD_COAT[i],
-    eyesColor: WIZARD_EYES[i],
-  },
-  {
-    name: WIZARD_NAMES[i] + WIZARD_SURNAMES[i],
-    coatColor: WIZARD_COAT[i],
-    eyesColor: WIZARD_EYES[i],
-  },
-];
+var getRandomArrayElement = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 
 var generateWizards = function (quantity) {
+
+  var wizards = [];
+
   for (var i = 0; i < quantity; i++) {
 
     wizards[i] = {
-      name: WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)] + WIZARD_SURNAMES[Math.floor(Math.random() * WIZARD_SURNAMES.length)],
-      coatColor: WIZARD_COAT[Math.floor(Math.random() * WIZARD_COAT.length)],
-      eyesColor: WIZARD_EYES[Math.floor(Math.random() * WIZARD_EYES.length)]
+      name: getRandomArrayElement(WIZARD_NAMES) + ' ' + getRandomArrayElement(WIZARD_SURNAMES),
+      coatColor: getRandomArrayElement(WIZARD_COAT),
+      eyesColor: getRandomArrayElement(WIZARD_EYES),
     };
   }
   return wizards;
 };
 
-generateWizards(4);
+var wizards = generateWizards(WIZARDS_QUANTITY);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
